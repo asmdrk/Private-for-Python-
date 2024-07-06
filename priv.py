@@ -3,8 +3,9 @@ def privatize(fun):
     def wrapper(*args, **kwargs):
         # print(inspect.getmembers(fun))
         frame = inspect.stack()
-        first = frame[0]
-        last = frame[-1]
+
+        first = frame[0] # original caller
+        last = frame[-1] #this file
         if (first.filename != last.filename):
             print("hey dont call that! lol")
         else: 
